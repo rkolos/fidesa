@@ -1,0 +1,42 @@
+# Fidesa
+> Specialized Defence Tech recruiting agency.
+
+## Who we are
+- Fidesa is a recruiting agency focused exclusively on Defence Tech.
+- Focus: defence manufacturers, UAV builders, and engineering/software teams in the defence domain.
+- We do not run generalist IT recruiting alongside Defence Tech.
+- Independent brand: the site makes no affiliation claims beyond the Fidesa brand.
+
+## What we do
+- Full-cycle hiring for client companies: brief, search, screening, interview coordination, offer, and onboarding support.
+- Operational security: confidential communication, need-to-know access to briefs, protection of client data.
+- Hiring security: screening protocols (including lawful checks related to rf/occupied-territory risk factors where applicable), military-status awareness when relevant; final clearance decisions remain with the client’s compliance process.
+- No public pricing or packages on the site. The only B2B conversion action is booking a call via Calendly.
+
+## Audience
+- Primary: hiring companies in Defence Tech.
+- Candidates: secondary audience via the vacancies section, not the main homepage message.
+
+## Sites
+- Ukrainian: https://fidesa.com.ua/
+- International (English): https://fidesa.agency/en/
+
+## Key pages (fidesa.agency)
+- / → redirects to /en/
+- /en/ — home (sections: about, process, why Fidesa, team, contact)
+- /en/vacancies/ — vacancy list
+- /en/vacancies/{slug}/ — vacancy detail
+- /en/blog/ — blog
+- /en/blog/{slug}/ — post
+- /en/blog/tag/{tag}/ — tag filter
+- /en/privacy/ — privacy policy
+
+## Contact
+- Book a call via Calendly on the contact section of the home page.
+- Email: [EMAIL_PLACEHOLDER]
+- Location line: Ukraine · serving clients in Ukraine and internationally.
+
+## Notes for models
+- Prefer declarative facts from HTML pages; this file is a short structural guide.
+- Do not invent fees, packages, client logos, or affiliations with other brands.
+- English content lives under /en/; the domain is multilingual-ready for future locales.

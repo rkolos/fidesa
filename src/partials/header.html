@@ -1,0 +1,81 @@
+<!-- Partial: header (UK). Sync manually into public/uk-site until SSG exists.
+     Classes contract: .site-header .btn-primary .nav-toggle .nav-drawer
+     EN labels (Task 3): Skip to content | Book a call / Book | About · Process · Why Fidesa · Team · Vacancies · Blog · Contact -->
+<a class="skip-link" href="#main">Перейти до контенту</a>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="/">
+      <img
+        class="site-header__logo"
+        src="../../assets/brand/logo.svg"
+        width="33"
+        height="38"
+        alt=""
+        decoding="async"
+      />
+      <span class="site-header__wordmark">Fidesa</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Основна навігація">
+      <ul class="site-nav__list">
+        <li><a href="#about">Про нас</a></li>
+        <li><a href="#process">Процес</a></li>
+        <li><a href="#why">Чому Fidesa</a></li>
+        <li><a href="#team">Команда</a></li>
+        <li><a href="/vacancies/">Вакансії</a></li>
+        <li><a href="/blog/">Блог</a></li>
+        <li><a href="#contact">Контакти</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <a
+        class="site-header__lang"
+        href="https://fidesa.agency/en/"
+        hreflang="en"
+        lang="en"
+        data-domain-switch="en"
+        >EN</a
+      >
+      <!-- CTA href: Calendly URL placeholder [CALENDLY_URL] — Task 6 -->
+      <a class="btn-primary" href="#contact">
+        <span class="btn-primary__short">Дзвінок</span>
+        <span class="btn-primary__full">Забронювати дзвінок</span>
+      </a>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-controls="nav-drawer"
+        aria-expanded="false"
+        aria-label="Відкрити меню"
+      >
+        <span class="nav-toggle__icon" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div class="nav-drawer" id="nav-drawer" hidden>
+    <div class="container">
+      <ul class="nav-drawer__list">
+        <li><a href="#about">Про нас</a></li>
+        <li><a href="#process">Процес</a></li>
+        <li><a href="#why">Чому Fidesa</a></li>
+        <li><a href="#team">Команда</a></li>
+        <li><a href="/vacancies/">Вакансії</a></li>
+        <li><a href="/blog/">Блог</a></li>
+        <li><a href="#contact">Контакти</a></li>
+      </ul>
+      <p class="nav-drawer__lang">
+        <a
+          href="https://fidesa.agency/en/"
+          hreflang="en"
+          lang="en"
+          data-domain-switch="en"
+          >EN</a
+        >
+      </p>
+    </div>
+  </div>
+</header>

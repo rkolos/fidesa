@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en" data-site="agency">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fidesa — Defence Tech Recruitment</title>
+    <meta
+      name="description"
+      content="Fidesa is a specialized recruiting agency for defence manufacturers, UAV builders, and defence software teams. We hire engineers and technical talent with security-aware screening."
+    />
+    <link rel="canonical" href="https://fidesa.agency/en/" />
+    <link rel="alternate" hreflang="uk" href="https://fidesa.com.ua/" />
+    <link rel="alternate" hreflang="en" href="https://fidesa.agency/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://fidesa.agency/en/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="uk_UA" />
+    <meta property="og:url" content="https://fidesa.agency/en/" />
+    <meta property="og:title" content="Fidesa — Defence Tech Recruitment" />
+    <meta
+      property="og:description"
+      content="Fidesa is a specialized recruiting agency for defence manufacturers, UAV builders, and defence software teams. We hire engineers and technical talent with security-aware screening."
+    />
+    <meta property="og:image" content="https://fidesa.agency/assets/brand/og-default.svg" />
+    <!-- OG: og-default.svg is temporary; replace with 1200×630 raster PNG/WebP before prod (Task 7/8). -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fidesa — Defence Tech Recruitment" />
+    <meta
+      name="twitter:description"
+      content="Fidesa is a specialized recruiting agency for defence manufacturers, UAV builders, and defence software teams. We hire engineers and technical talent with security-aware screening."
+    />
+    <meta name="twitter:image" content="https://fidesa.agency/assets/brand/og-default.svg" />
+    <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="/assets/fonts/IBMPlexSans-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/assets/css/site.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": ["Organization", "ProfessionalService"],
+            "@id": "https://fidesa.agency/en/#organization",
+            "name": "Fidesa",
+            "url": "https://fidesa.agency/en/",
+            "logo": "https://fidesa.agency/assets/brand/logo.svg",
+            "description": "Fidesa is a specialized recruiting agency for defence manufacturers, UAV builders, and defence software teams. We hire engineers and technical talent with security-aware screening.",
+            "email": "[EMAIL_PLACEHOLDER]",
+            "areaServed": ["Ukraine", "Worldwide"],
+            "knowsAbout": [
+              "Defence Tech recruiting",
+              "defence manufacturers",
+              "UAV",
+              "defence software"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://fidesa.agency/en/#website",
+            "name": "Fidesa",
+            "url": "https://fidesa.agency/en/",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://fidesa.agency/en/#organization" }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div class="site">
+      <a class="skip-link" href="#main">Skip to content</a>
+
+      <!-- Geo banner: hidden without JS; domain-lang.js may reveal (Variant A). -->
+      <div id="lang-banner" class="lang-banner" hidden data-lang-banner>
+        <div class="container lang-banner__inner">
+          <div class="lang-banner__copy" lang="uk">
+            <p class="lang-banner__message">
+              Схоже, вам зручніша українська версія сайту.
+            </p>
+            <div class="lang-banner__actions">
+              <a
+                class="btn-primary lang-banner__primary"
+                href="https://fidesa.com.ua/"
+                data-banner-go-uk
+                data-domain-switch="uk"
+                hreflang="uk"
+                >Перейти на fidesa.com.ua</a
+              >
+              <button type="button" class="lang-banner__secondary" data-banner-stay-en>
+                Залишитись англійською
+              </button>
+            </div>
+            <label class="lang-banner__persist">
+              <input type="checkbox" data-banner-persist />
+              Більше не показувати
+            </label>
+          </div>
+          <!--
+            Variant B (EN mirror for spec §5.5):
+            Looking for the Ukrainian version of this site?
+            Go to fidesa.com.ua
+            Stay in English
+            Don’t show again
+            Dismiss
+          -->
+          <button
+            type="button"
+            class="lang-banner__dismiss"
+            data-banner-dismiss
+            aria-label="Закрити"
+          >
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+      </div>
+
+      <header class="site-header">
+        <div class="container site-header__inner">
+          <a class="site-header__brand" href="/en/">
+            <img
+              class="site-header__logo"
+              src="/assets/brand/logo.svg"
+              width="33"
+              height="38"
+              alt=""
+              decoding="async"
+            />
+            <span class="site-header__wordmark">Fidesa</span>
+          </a>
+
+          <nav class="site-nav" aria-label="Primary">
+            <ul class="site-nav__list">
+              <li><a href="#about">About</a></li>
+              <li><a href="#process">Process</a></li>
+              <li><a href="#why">Why Fidesa</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="/en/vacancies/">Vacancies</a></li>
+              <li><a href="/en/blog/">Blog</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+
+          <div class="site-header__actions">
+            <a
+              class="site-header__lang"
+              href="https://fidesa.com.ua/"
+              hreflang="uk"
+              lang="uk"
+              data-domain-switch="uk"
+              >UA</a
+            >
+            <a class="btn-primary" href="#contact">
+              <span class="btn-primary__short">Book</span>
+              <span class="btn-primary__full">Book a call</span>
+            </a>
+            <button
+              class="nav-toggle"
+              type="button"
+              aria-controls="nav-drawer"
+              aria-expanded="false"
+              aria-label="Open menu"
+            >
+              <span class="nav-toggle__icon" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div class="nav-drawer" id="nav-drawer" hidden>
+          <div class="container">
+            <ul class="nav-drawer__list">
+              <li><a href="#about">About</a></li>
+              <li><a href="#process">Process</a></li>
+              <li><a href="#why">Why Fidesa</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="/en/vacancies/">Vacancies</a></li>
+              <li><a href="/en/blog/">Blog</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+            <p class="nav-drawer__lang">
+              <a
+                href="https://fidesa.com.ua/"
+                hreflang="uk"
+                lang="uk"
+                data-domain-switch="uk"
+                >UA</a
+              >
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <main id="main" class="site-main site-main--home">
+        <!-- 1. Hero -->
+        <section class="hero" id="top" aria-labelledby="hero-heading">
+          <div class="hero__backdrop" aria-hidden="true"></div>
+          <aside class="hero__visual" data-hero-mark aria-hidden="true"></aside>
+          <div class="container hero__inner">
+            <div class="hero__copy">
+              <p class="hero__brand">Fidesa</p>
+              <h1 class="hero__title" id="hero-heading">Recruitment for Defence Tech</h1>
+              <p class="hero__lead">
+                We hire engineers, developers, and technical leaders for companies building
+                weapons systems, unmanned platforms, and defence software.
+              </p>
+              <div class="hero__actions">
+                <a class="btn-primary" href="#contact">Book a call</a>
+                <a class="btn-secondary" href="#process">How we work</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. About -->
+        <section class="section section--surface" id="about" aria-labelledby="about-heading">
+          <div class="container section__inner section__inner--narrow">
+            <h2 id="about-heading">What Fidesa is</h2>
+            <p class="section__lead">
+              Fidesa is a recruiting agency focused exclusively on Defence Tech.
+            </p>
+            <p>
+              We help defence manufacturers and product teams fill critical roles — from
+              embedded systems and RF engineering to software, data, and production. One
+              focus: the defence market. We do not run generalist IT recruiting alongside
+              Defence Tech.
+            </p>
+
+            <div class="qa-list">
+              <div class="qa">
+                <h3 class="qa__q">Who is Fidesa for?</h3>
+                <p class="qa__a">
+                  For hiring companies: weapons and UAV manufacturers, and engineering and
+                  software teams in the defence sector. Candidates use a separate vacancies
+                  page — the home page is built for hiring teams.
+                </p>
+              </div>
+              <div class="qa">
+                <h3 class="qa__q">What do we do?</h3>
+                <p class="qa__a">
+                  Full-cycle recruiting: briefing, search, screening, interview coordination,
+                  offer support, and follow-through until the candidate starts. Commercial
+                  terms are discussed on a call — this site does not publish packages or
+                  commission rates.
+                </p>
+              </div>
+              <div class="qa">
+                <h3 class="qa__q">Why narrow specialization?</h3>
+                <p class="qa__a">
+                  Market depth, role fluency, and security expectations produce faster,
+                  higher-quality hires than generalist agencies where Defence Tech is only
+                  one vertical among many.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="section-divider" aria-hidden="true">
+          <svg width="48" height="8" viewBox="0 0 48 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 4h12l4-3 4 3h12l4 3 4-3h8" stroke="currentColor" stroke-width="1" />
+          </svg>
+        </div>
+
+        <!-- 3. Process -->
+        <section class="section" id="process" aria-labelledby="process-heading">
+          <div class="container section__inner">
+            <h2 id="process-heading">How engagement works</h2>
+            <p class="section__intro">
+              A transparent path from brief to hire — with clear stages and ownership on both
+              sides.
+            </p>
+
+            <ol class="process-steps">
+              <li class="process-step">
+                <span class="process-step__num" aria-hidden="true">1</span>
+                <div>
+                  <h3 class="process-step__title">Brief</h3>
+                  <p>
+                    We lock the role, stack, seniority, security constraints, timeline, and
+                    success criteria. We agree what can be published about the vacancy and
+                    what stays confidential.
+                  </p>
+                </div>
+              </li>
+              <li class="process-step">
+                <span class="process-step__num" aria-hidden="true">2</span>
+                <div>
+                  <h3 class="process-step__title">Search &amp; screening</h3>
+                  <p>
+                    We research the market, check profile fit and risks within the agency’s
+                    protocols, and prepare a shortlist for your team.
+                  </p>
+                </div>
+              </li>
+              <li class="process-step">
+                <span class="process-step__num" aria-hidden="true">3</span>
+                <div>
+                  <h3 class="process-step__title">Interviews</h3>
+                  <p>
+                    We coordinate meetings with your team, collect feedback after each round,
+                    and recalibrate the search.
+                  </p>
+                </div>
+              </li>
+              <li class="process-step">
+                <span class="process-step__num" aria-hidden="true">4</span>
+                <div>
+                  <h3 class="process-step__title">Offer &amp; onboarding</h3>
+                  <p>
+                    We support the offer stage, decision-making, and the candidate’s start —
+                    until the hire is complete by your criteria.
+                  </p>
+                </div>
+              </li>
+            </ol>
+
+            <p class="process-micro">
+              <svg
+                class="process-micro__icon"
+                width="28"
+                height="28"
+                viewBox="0 0 28 28"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M8 14c0-2 1.5-4 4-4h1M20 14c0 2-1.5 4-4 4h-1M11 10l-2 4 2 4M17 10l2 4-2 4M12 14h4"
+                  stroke="currentColor"
+                  stroke-width="1.25"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>An agreement between two sides is the foundation of our work.</span>
+            </p>
+          </div>
+        </section>
+
+        <div class="section-divider" aria-hidden="true">
+          <svg width="48" height="8" viewBox="0 0 48 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 4h12l4-3 4 3h12l4 3 4-3h8" stroke="currentColor" stroke-width="1" />
+          </svg>
+        </div>
+
+        <!-- 4. Why -->
+        <section class="section section--surface" id="why" aria-labelledby="why-heading">
+          <div class="container section__inner">
+            <h2 id="why-heading">Why companies choose Fidesa</h2>
+            <p class="section__intro">
+              Defence Tech specialization is the primary reason. Security is a required part
+              of delivery — not a slogan.
+            </p>
+
+            <div class="why-grid">
+              <div class="why-block">
+                <h3>Operational security</h3>
+                <ul class="fact-list">
+                  <li>Confidential communication with clients and candidates.</li>
+                  <li>Need-to-know access to vacancy and project data.</li>
+                  <li>
+                    Protection of the client’s personal and commercial data under applicable
+                    law.
+                  </li>
+                </ul>
+                <div class="qa">
+                  <h4 class="qa__q">How do you protect client information?</h4>
+                  <p class="qa__a">
+                    We minimize who can access the brief, do not publish client identifiers
+                    without permission, and use secured communication channels.
+                  </p>
+                </div>
+              </div>
+
+              <div class="why-block">
+                <h3>Hiring security</h3>
+                <ul class="fact-list">
+                  <li>
+                    Screening for links to the russian federation and occupied territories
+                    within available and lawful procedures.
+                  </li>
+                  <li>
+                    Consideration of military status and constraints relevant to the role and
+                    jurisdiction.
+                  </li>
+                  <li>
+                    Compliance with personal-data protection requirements when processing CVs
+                    and communications.
+                  </li>
+                </ul>
+                <div class="qa">
+                  <h4 class="qa__q">Do you guarantee absolute vetting?</h4>
+                  <p class="qa__a">
+                    We apply screening protocols and escalate edge cases to the client. Final
+                    clearance decisions always remain with the client and their compliance
+                    processes.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. Team -->
+        <section class="section" id="team" aria-labelledby="team-heading">
+          <div class="container section__inner">
+            <h2 id="team-heading">Team</h2>
+            <p class="section__intro">The people you work with directly.</p>
+
+            <article class="team-card">
+              <div
+                class="team-card__photo"
+                role="img"
+                aria-label="Valeriia, Founder of Fidesa"
+              >
+                <span class="team-card__photo-placeholder" aria-hidden="true">V</span>
+              </div>
+              <div class="team-card__body">
+                <h3 class="team-card__name">Valeriia</h3>
+                <p class="team-card__role">Founder</p>
+                <p>
+                  Valeriia leads Fidesa and owns agency growth and key client relationships.
+                  She is the public face of the brand, focused on building specialized Defence
+                  Tech recruiting and reliable service for teams scaling defence products.
+                </p>
+              </div>
+            </article>
+
+            <div class="team-cto">
+              <h3 class="team-cto__title">CTO</h3>
+              <p class="team-cto__trust">
+                A CTO with military background — bringing engineering judgment to role design
+                and candidate requirements in Defence Tech.
+              </p>
+              <!-- Photo slot reserved; no img until asset provided. Name not disclosed. -->
+              <div class="team-cto__slot" aria-hidden="true"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. Testimonials stub -->
+        <section
+          class="section section--surface"
+          id="testimonials"
+          aria-labelledby="testimonials-heading"
+        >
+          <div class="container section__inner section__inner--narrow">
+            <h2 id="testimonials-heading">Client testimonials</h2>
+            <p class="testimonials-empty">
+              Client testimonials will appear here. This module is ready to be populated.
+            </p>
+            <!--
+              Future testimonial card template:
+              - photo
+              - quote
+              - name
+              - role
+              No client logos.
+            -->
+            <div data-testimonials></div>
+          </div>
+        </section>
+
+        <!-- 7. Contact -->
+        <section class="section" id="contact" aria-labelledby="contact-heading">
+          <div class="container section__inner section__inner--narrow">
+            <h2 id="contact-heading">Book a call</h2>
+            <p class="section__intro">
+              A short conversation with the founder or team — to clarify the role, timeline,
+              and whether we can help.
+            </p>
+
+            <div
+              class="contact-panel"
+              data-calendly-root
+              data-calendly-url="[CALENDLY_URL]"
+            >
+              <!-- Task 8: replace [CALENDLY_URL] / [EMAIL_PLACEHOLDER] with real values. -->
+              <button
+                type="button"
+                class="btn-primary contact-panel__cta"
+                data-calendly-open
+                aria-expanded="false"
+                aria-controls="calendly-widget"
+              >
+                Open calendar
+              </button>
+              <p class="contact-panel__fallback">
+                <a
+                  href="[CALENDLY_URL]"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Open Calendly in a new tab</a
+                >
+              </p>
+              <!-- Contacts markup: sync manually with uk-site home until SSG; URL source: data-calendly-url on root. -->
+              <div
+                id="calendly-widget"
+                class="contact-panel__widget"
+                data-calendly-widget
+                hidden
+              ></div>
+              <div class="contact-panel__meta">
+                <p>
+                  <span class="contact-panel__label">Email</span>
+                  <span data-email="[EMAIL_PLACEHOLDER]">[EMAIL_PLACEHOLDER]</span>
+                </p>
+                <p class="contact-panel__location">
+                  Ukraine · serving clients in Ukraine and internationally
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div>
+            <p class="site-footer__brand">Fidesa</p>
+            <p class="site-footer__tagline">Specialized recruiting for Defence Tech</p>
+          </div>
+          <nav class="site-footer__nav-wrap" aria-label="Footer">
+            <ul class="site-footer__nav site-footer__nav--sections">
+              <li><a href="#about">About</a></li>
+              <li><a href="#process">Process</a></li>
+              <li><a href="#why">Why Fidesa</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+            <ul class="site-footer__nav">
+              <li><a href="/en/vacancies/">Vacancies</a></li>
+              <li><a href="/en/blog/">Blog</a></li>
+              <li><a href="/en/privacy/">Privacy</a></li>
+              <li>
+                <a
+                  href="https://fidesa.com.ua/"
+                  hreflang="uk"
+                  lang="uk"
+                  data-domain-switch="uk"
+                  >UA</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <p class="site-footer__copy">© 2026 Fidesa</p>
+        </div>
+        <div class="site-footer__decor container" aria-hidden="true">
+          <svg
+            class="site-footer__meander"
+            width="120"
+            height="12"
+            viewBox="0 0 120 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1 6h8l4-4 4 4h8l4 4 4-4h8l4-4 4 4h8l4 4 4-4h8l4-4 4 4h8l4 4 4-4h14"
+              stroke="currentColor"
+              stroke-width="1"
+              stroke-linejoin="miter"
+            />
+          </svg>
+        </div>
+      </footer>
+    </div>
+
+    <div class="sticky-cta" id="sticky-cta" hidden>
+      <a class="btn-primary sticky-cta__btn" href="#contact">Book a call</a>
+    </div>
+
+    <script src="/js/nav.js" defer></script>
+    <script src="/js/sticky-cta.js" defer></script>
+    <script src="/js/domain-lang.js" defer></script>
+    <script src="/js/calendly-lazy.js" defer></script>
+    <script src="/js/hero-mark.js" defer></script>
+  </body>
+</html>

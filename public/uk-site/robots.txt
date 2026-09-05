@@ -1,0 +1,22 @@
+# Fidesa — fidesa.com.ua
+# AI crawlers and Googlebot explicitly allowed (about.md §6 / Task 6).
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://fidesa.com.ua/sitemap.xml

@@ -1,0 +1,40 @@
+<!-- Geo / Accept-Language banner (agency). Hidden by default — shown by domain-lang.js.
+     Variant A (UK copy) is the visible default.
+     Variant B (EN mirror for spec §5.5):
+       Looking for the Ukrainian version of this site?
+       Go to fidesa.com.ua · Stay in English · Don’t show again · Dismiss
+-->
+<div id="lang-banner" class="lang-banner" hidden data-lang-banner>
+  <div class="container lang-banner__inner">
+    <div class="lang-banner__copy" lang="uk">
+      <p class="lang-banner__message">
+        Схоже, вам зручніша українська версія сайту.
+      </p>
+      <div class="lang-banner__actions">
+        <a
+          class="btn-primary lang-banner__primary"
+          href="https://fidesa.com.ua/"
+          data-banner-go-uk
+          data-domain-switch="uk"
+          hreflang="uk"
+          >Перейти на fidesa.com.ua</a
+        >
+        <button type="button" class="lang-banner__secondary" data-banner-stay-en>
+          Залишитись англійською
+        </button>
+      </div>
+      <label class="lang-banner__persist">
+        <input type="checkbox" data-banner-persist />
+        Більше не показувати
+      </label>
+    </div>
+    <button
+      type="button"
+      class="lang-banner__dismiss"
+      data-banner-dismiss
+      aria-label="Закрити"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+</div>

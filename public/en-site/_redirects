@@ -1,0 +1,4 @@
+# Agency root → EN home (Netlify / Cloudflare Pages compatible).
+# Prefer hosting redirect; this file is the deploy-root rule for en-site.
+/    /en/    302
+/index.html  /en/    302
