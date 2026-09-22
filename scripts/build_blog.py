@@ -124,17 +124,17 @@ UI = {
         "nav_team": "Team",
         "nav_vacancies": "Vacancies",
         "nav_contact": "Contact",
-        "home": "/en/",
-        "blog": "/en/blog/",
-        "vacancies": "/en/vacancies/",
-        "privacy": "/en/privacy/",
-        "contact": "/en/#contact",
-        "team_anchor": "/en/#team",
+        "home": "/",
+        "blog": "/blog/",
+        "vacancies": "/vacancies/",
+        "privacy": "/privacy/",
+        "contact": "/#contact",
+        "team_anchor": "/#team",
         "origin": "https://fidesa.agency",
         "og_locale": "en_US",
         "lang": "en",
         "site": "agency",
-        "hreflang_path_prefix": "/en",
+        "hreflang_path_prefix": "",
         "other_lang": "uk",
         "other_label": "UA",
         "months": [
@@ -338,24 +338,20 @@ def asset_prefix(depth: int) -> str:
 
 
 def other_url(lang: str, logical_path: str) -> str:
-    """logical_path like /blog/ or /blog/slug/ (no /en)."""
+    """logical_path like /blog/ or /blog/slug/ (no language prefix)."""
     if lang == "uk":
-        return "https://fidesa.agency/en" + logical_path
+        return "https://fidesa.agency" + logical_path
     return "https://fidesa.com.ua" + logical_path
 
 
 def absolute_url(lang: str, logical_path: str) -> str:
     ui = UI[lang]
-    if lang == "uk":
-        return ui["origin"] + logical_path
-    return ui["origin"] + "/en" + logical_path
+    return ui["origin"] + logical_path
 
 
 def home_absolute(lang: str) -> str:
     """Canonical home URL for schema breadcrumbs."""
-    if lang == "uk":
-        return "https://fidesa.com.ua/"
-    return "https://fidesa.agency/en/"
+    return UI[lang]["origin"] + "/"
 
 
 def load_posts(lang: str) -> list[dict]:
@@ -545,7 +541,7 @@ def page_shell(
     prefix = asset_prefix(depth)
     canon = absolute_url(lang, logical_path)
     uk_url = "https://fidesa.com.ua" + logical_path
-    en_url = "https://fidesa.agency/en" + logical_path
+    en_url = "https://fidesa.agency" + logical_path
     og_image = f"{ui['origin']}/assets/brand/og-default.svg"
     header, footer = header_footer(lang, depth, logical_path, current=current)
 
@@ -567,7 +563,7 @@ def page_shell(
     <link rel="canonical" href="{canon}" />
     <link rel="alternate" hreflang="uk" href="{uk_url}" />
     <link rel="alternate" hreflang="en" href="{en_url}" />
-    <link rel="alternate" hreflang="x-default" href="https://fidesa.agency/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://fidesa.agency/" />
     <meta property="og:type" content="{og_type}" />
     <meta property="og:locale" content="{ui['og_locale']}" />
     <meta property="og:url" content="{canon}" />
@@ -671,8 +667,8 @@ def write(path: Path, content: str) -> None:
 
 def build_list(lang: str, posts: list[dict]) -> None:
     ui = UI[lang]
-    depth = 3 if lang == "uk" else 4
-    out_dir = ROOT / ("public/uk-site/blog" if lang == "uk" else "public/en-site/en/blog")
+    depth = 3
+    out_dir = ROOT / ("public/uk-site/blog" if lang == "uk" else "public/en-site/blog")
     cards = "\n".join(card_html(lang, p) for p in posts)
     count = posts_count_label(len(posts), lang)
     schema = {
@@ -723,9 +719,9 @@ def build_tag(lang: str, tag_id: str, posts: list[dict]) -> None:
     label = TAGS[tag_id][lang]
     filtered = [p for p in posts if tag_id in p["tags"]]
     filtered.sort(key=lambda p: p["date"], reverse=True)
-    depth = 5 if lang == "uk" else 6
+    depth = 5
     out_dir = ROOT / (
-        f"public/uk-site/blog/tag/{tag_id}" if lang == "uk" else f"public/en-site/en/blog/tag/{tag_id}"
+        f"public/uk-site/blog/tag/{tag_id}" if lang == "uk" else f"public/en-site/blog/tag/{tag_id}"
     )
     logical = f"/blog/tag/{tag_id}/"
     heading = ui["tag_heading"].format(label=label)
@@ -792,10 +788,10 @@ def author_schema(lang: str, author_id: str) -> dict:
 
 def build_post(lang: str, post: dict, all_posts: list[dict]) -> None:
     ui = UI[lang]
-    depth = 4 if lang == "uk" else 5
+    depth = 4
     prefix = asset_prefix(depth)
     out_dir = ROOT / (
-        f"public/uk-site/blog/{post['slug']}" if lang == "uk" else f"public/en-site/en/blog/{post['slug']}"
+        f"public/uk-site/blog/{post['slug']}" if lang == "uk" else f"public/en-site/blog/{post['slug']}"
     )
     logical = post["path"]
     related = related_posts(post, all_posts)

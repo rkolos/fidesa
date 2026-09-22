@@ -1,13 +1,13 @@
 /**
  * Domain / language helpers: path-aware UA↔EN links, geo banner on agency.
- * Progressive enhancement only — language of content is determined by URL.
+ * Progressive enhancement only — language of content is determined by URL/domain.
  *
  * Path smoke cases (prod host):
- *   /en/ + #process → https://fidesa.com.ua/#process
- *   /en/vacancies/foo/ → https://fidesa.com.ua/vacancies/foo/
- *   /vacancies/foo/ → https://fidesa.agency/en/vacancies/foo/
- *   /en/blog/foo/ → https://fidesa.com.ua/blog/foo/
- *   /blog/tag/security/ → https://fidesa.agency/en/blog/tag/security/
+ *   / + #process → https://fidesa.com.ua/#process
+ *   /vacancies/foo/ → https://fidesa.com.ua/vacancies/foo/
+ *   /vacancies/foo/ (on com.ua) → https://fidesa.agency/vacancies/foo/
+ *   /blog/foo/ → mirror on the other domain
+ *   Legacy /en/… on agency is stripped to the logical path (then 301’d by hosting).
  * Localhost: enhanceDomainLinks skipped (static hrefs kept).
  */
 (function () {
@@ -17,6 +17,7 @@
   var LANG_BANNER_KEY = "fidesa.langBanner";
   var SESSION_DISMISS_KEY = "fidesa.langBannerSession";
 
+  /* Legacy agency locale prefixes (kept for old bookmarks / soft redirects). */
   var LANG_PREFIX_RE = /^\/(en|de|pl)(?=\/|$)/i;
 
   function ensureTrailingSlash(path) {
@@ -34,7 +35,7 @@
   }
 
   /**
-   * Logical path without language prefix (agency /en|/de|/pl stripped).
+   * Logical path without legacy language prefix (agency /en|/de|/pl stripped).
    * Strips trailing /index.html.
    */
   function getLogicalPath(pathname) {
@@ -65,10 +66,8 @@
   }
 
   function buildEnUrl(logicalPath, search, hash) {
-    var logical = toMirrorPath(logicalPath || "/");
-    var path =
-      logical === "/" ? "/en/" : "/en" + ensureTrailingSlash(logical);
-    return EN_ORIGIN + path + (search || "") + (hash || "");
+    var path = ensureTrailingSlash(toMirrorPath(logicalPath || "/"));
+    return EN_ORIGIN + (path === "/" ? "/" : path) + (search || "") + (hash || "");
   }
 
   function mirrorUrl(targetLang, loc) {

@@ -1,4 +1,5 @@
-# Agency root → EN home (Netlify / Cloudflare Pages compatible).
-# Prefer hosting redirect; this file is the deploy-root rule for en-site.
-/    /en/    302
-/index.html  /en/    302
+# Legacy /en/* → root (Netlify / Cloudflare Pages).
+# Prefer hosting 301; .htaccess covers Apache/LiteSpeed panels.
+/en   /   301
+/en/  /   301
+/en/* /:splat  301

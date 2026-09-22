@@ -145,4 +145,4 @@ Each mistake costs more than an hour spent on the brief.
 
 Fast Defence Tech search starts with a slow, disciplined hour on the brief. Mission, stack, access expectations, timeline, and an honest must/nice matrix are the minimum package. Everything else is downstream.
 
-If you are opening a role and want a brief session before sourcing starts, book a call via Calendly in the [Fidesa contact section](/en/#contact).
+If you are opening a role and want a brief session before sourcing starts, book a call via Calendly in the [Fidesa contact section](/#contact).

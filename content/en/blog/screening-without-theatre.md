@@ -107,4 +107,4 @@ Respect here is not softness. It is the condition under which strong people stay
 
 If your security process starts late, collects surplus, and has no owner, you are paying for theatre. If the protocol is early, proportionate, role-split, and data-disciplined, you protect the programme and accelerate a quality shortlist at the same time.
 
-Fidesa builds screening as part of Defence Tech recruiting quality: without imitating the client’s security function and without collecting data “for the archive.” To align the frame for a specific role, book a call via Calendly in the [contact section](/en/#contact).
+Fidesa builds screening as part of Defence Tech recruiting quality: without imitating the client’s security function and without collecting data “for the archive.” To align the frame for a specific role, book a call via Calendly in the [contact section](/#contact).

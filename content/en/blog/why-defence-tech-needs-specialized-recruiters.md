@@ -86,4 +86,4 @@ The goal is not to replace the internal team. It is to reach a quality shortlist
 
 Defence Tech is not “one more vertical” inside generalist IT recruiting. It is a distinct market of roles, risks, and tempos. A specialized approach reduces the cost of bad hires, compresses time-to-hire, and protects engineering attention from false-positive candidates.
 
-If you are opening a critical role and want to discuss the brief without unnecessary noise, book a call via Calendly in the [contact section](/en/#contact) on the Fidesa site.
+If you are opening a critical role and want to discuss the brief without unnecessary noise, book a call via Calendly in the [contact section](/#contact) on the Fidesa site.

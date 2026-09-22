@@ -1,15 +1,15 @@
 # Fidesa — home (EN)
 
 Джерело істин для копірайту: `docs/superpowers/plans/tasks/2026-09-04-task-03-home-en-i18n.md` §2–4.
-Рендер: `public/en-site/en/index.html`.
+Рендер: `public/en-site/index.html`.
 
 ## Meta
 
 - **Title:** Fidesa — Defence Tech Recruitment
 - **Description:** Fidesa is a specialized recruiting agency for defence manufacturers, UAV builders, and defence software teams. We hire engineers and technical talent with security-aware screening.
 - **lang:** en
-- **Canonical:** https://fidesa.agency/en/
-- **hreflang:** uk → https://fidesa.com.ua/ · en → https://fidesa.agency/en/ · x-default → https://fidesa.agency/en/
+- **Canonical:** https://fidesa.agency/
+- **hreflang:** uk → https://fidesa.com.ua/ · en → https://fidesa.agency/ · x-default → https://fidesa.agency/
 - **OG locale:** en_US (alternate uk_UA)
 
 ## Nav
@@ -18,8 +18,8 @@
 2. Process → #process
 3. Why Fidesa → #why
 4. Team → #team
-5. Vacancies → /en/vacancies/
-6. Blog → /en/blog/
+5. Vacancies → /vacancies/
+6. Blog → /blog/
 7. Contact → #contact
 8. UA → https://fidesa.com.ua/
 
@@ -125,7 +125,7 @@ A CTO with military background — bringing engineering judgment to role design 
 
 - Tagline: Specialized recruiting for Defence Tech
 - Links: Vacancies · Blog · Privacy · UA
-- Privacy: /en/privacy/
+- Privacy: /privacy/
 - Copyright: © 2026 Fidesa
 
 ## Geo banner (agency; Variant A default)

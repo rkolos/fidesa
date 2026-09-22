@@ -19,17 +19,17 @@
 
 ## Sites
 - Ukrainian: https://fidesa.com.ua/
-- International (English): https://fidesa.agency/en/
+- International (English): https://fidesa.agency/
 
 ## Key pages (fidesa.agency)
-- / → redirects to /en/
-- /en/ — home (sections: about, process, why Fidesa, team, contact)
-- /en/vacancies/ — vacancy list
-- /en/vacancies/{slug}/ — vacancy detail
-- /en/blog/ — blog
-- /en/blog/{slug}/ — post
-- /en/blog/tag/{tag}/ — tag filter
-- /en/privacy/ — privacy policy
+- / — home (sections: about, process, why Fidesa, team, contact)
+- /vacancies/ — vacancy list
+- /vacancies/{slug}/ — vacancy detail
+- /blog/ — blog
+- /blog/{slug}/ — post
+- /blog/tag/{tag}/ — tag filter
+- /privacy/ — privacy policy
+- Legacy /en/… URLs 301 to the same path without /en.
 
 ## Contact
 - Book a call via Calendly on the contact section of the home page.
@@ -39,4 +39,4 @@
 ## Notes for models
 - Prefer declarative facts from HTML pages; this file is a short structural guide.
 - Do not invent fees, packages, client logos, or affiliations with other brands.
-- English content lives under /en/; the domain is multilingual-ready for future locales.
+- English content is the document root of fidesa.agency (no /en/ prefix).

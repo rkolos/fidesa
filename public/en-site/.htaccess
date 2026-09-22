@@ -1,0 +1,6 @@
+# Legacy /en/* → site root (Apache / LiteSpeed panels).
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^en/?$ / [R=301,L]
+  RewriteRule ^en/(.*)$ /$1 [R=301,L]
+</IfModule>

@@ -9,7 +9,7 @@
 - **Description:** Fidesa — спеціалізована рекрутингова агенція для виробників озброєння, БПЛА та оборонного ПЗ. Підбір інженерів і технічних команд під ключ.
 - **lang:** uk
 - **Canonical:** https://fidesa.com.ua/
-- **hreflang:** uk → https://fidesa.com.ua/ · en → https://fidesa.agency/en/ · x-default → https://fidesa.agency/en/
+- **hreflang:** uk → https://fidesa.com.ua/ · en → https://fidesa.agency/ · x-default → https://fidesa.agency/
 
 ## Nav
 
@@ -20,7 +20,7 @@
 5. Вакансії → /vacancies/
 6. Блог → /blog/
 7. Контакти → #contact
-8. EN → https://fidesa.agency/en/
+8. EN → https://fidesa.agency/
 
 ## CTA
 
