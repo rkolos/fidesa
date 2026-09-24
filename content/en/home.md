@@ -27,9 +27,9 @@
 
 - Header desktop: Book a call
 - Header mobile: Book
-- Hero primary: Book a call → #contact / [CALENDLY_URL]
+- Hero primary: Book a call → #contact / https://calendly.com/vkolos325/cooperation-with-dna325
 - Hero secondary: How we work → #process
-- Contact: Open calendar · fallback «Open Calendly in a new tab» → [CALENDLY_URL]
+- Contact: Open calendar · fallback «Open Calendly in a new tab» → https://calendly.com/vkolos325/cooperation-with-dna325
 - Skip: Skip to content → #main
 - Hamburger: Open menu / Close menu
 
@@ -116,7 +116,7 @@ A CTO with military background — bringing engineering judgment to role design 
 - **H2:** Book a call
 - **Supporting:** A short conversation with the founder or team — to clarify the role, timeline, and whether we can help.
 - **CTA:** Open calendar
-- **Fallback:** Open Calendly in a new tab → [CALENDLY_URL] (target=_blank, rel=noopener noreferrer; accessible name = visible text)
+- **Fallback:** Open Calendly in a new tab → https://calendly.com/vkolos325/cooperation-with-dna325 (target=_blank, rel=noopener noreferrer; accessible name = visible text)
 - **Lazy:** `data-calendly-root` + `calendly-lazy.js` (click mount; IntersectionObserver preload). Sync Contacts markup manually with UK home until SSG.
 - **Email:** Email · [EMAIL_PLACEHOLDER]
 - **Location:** Ukraine · serving clients in Ukraine and internationally

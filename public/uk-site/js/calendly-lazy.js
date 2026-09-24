@@ -1,41 +1,52 @@
 /**
- * Lazy Calendly for #contact on home pages.
+ * Lazy Calendly: inline widget on home #contact + sitewide badge.
  *
- * Mode (Task 6):
- * - Click on [data-calendly-open]: inject Calendly widget.js once and mount
- *   an inline widget into [data-calendly-widget] via initInlineWidget only
- *   (empty parentElement — no nested .calendly-inline-widget auto-init).
- * - IntersectionObserver (rootMargin ~150px): on desktop (min-width 1024px)
- *   only, preload widget.js when #contact approaches the viewport IF URL is a
- *   real http(s) link; does NOT mount until click. Mobile: click-to-load only.
- *   Placeholder [CALENDLY_URL] skips preload/mount so the fallback <a> stays
- *   usable until Task 8.
- * - prefers-reduced-motion: same load behaviour; no appearance animation.
+ * Mode:
+ * - Inline: click [data-calendly-open] → inject widget.js once, mount via
+ *   initInlineWidget into [data-calendly-widget]. Desktop (min-width 1024px):
+ *   IntersectionObserver (~150px) preloads script when #contact nears viewport;
+ *   mobile: click-to-load only. URL: data-calendly-url on [data-calendly-root].
+ * - Badge: lazy initBadgeWidget after requestIdleCallback (~2s fallback) or
+ *   first scroll/pointerdown — whichever comes first. Shared CSS+JS inject.
+ *   On home: hide badge while #sticky-cta is visible or #contact is near
+ *   viewport (avoids double CTA with sticky bar).
  * - Header / sticky CTA stay as #contact anchors — they do not load Calendly.
  *
- * Idempotent: script tag and widget mount run at most once per page.
- * URL source of truth for JS: data-calendly-url on [data-calendly-root].
+ * Idempotent: script/css tags, inline mount, and badge init run at most once.
  */
 (function () {
   var SCRIPT_SRC = "https://assets.calendly.com/assets/external/widget.js";
-  var root = document.querySelector("[data-calendly-root]");
-  if (!root) return;
+  var CSS_HREF = "https://assets.calendly.com/assets/external/widget.css";
+  var BADGE_URL = "https://calendly.com/vkolos325/cooperation-with-dna325";
+  var BADGE_COLOR = "#2E4259";
+  var BADGE_TEXT_COLOR = "#ffffff";
 
-  var openBtn = root.querySelector("[data-calendly-open]");
-  var widgetHost = root.querySelector("[data-calendly-widget]");
-  var fallback = root.querySelector(".contact-panel__fallback a");
-  var contact = document.getElementById("contact") || root.closest("#contact");
+  var root = document.querySelector("[data-calendly-root]");
+  var openBtn = root ? root.querySelector("[data-calendly-open]") : null;
+  var widgetHost = root ? root.querySelector("[data-calendly-widget]") : null;
+  var fallback = root ? root.querySelector(".contact-panel__fallback a") : null;
+  var contact = document.getElementById("contact") || (root && root.closest("#contact"));
 
   var scriptState = "idle"; // idle | loading | ready
   var mounted = false;
+  var badgeInited = false;
   var loadWaiters = [];
 
   function calendlyUrl() {
-    return (root.getAttribute("data-calendly-url") || "").trim();
+    if (!root) return BADGE_URL;
+    return (root.getAttribute("data-calendly-url") || "").trim() || BADGE_URL;
   }
 
   function isUsableUrl(url) {
     return /^https?:\/\//i.test(url);
+  }
+
+  function ensureCss() {
+    if (document.querySelector('link[href="' + CSS_HREF + '"]')) return;
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = CSS_HREF;
+    document.head.appendChild(link);
   }
 
   function whenScriptReady(cb) {
@@ -46,6 +57,7 @@
     loadWaiters.push(cb);
     if (scriptState !== "idle") return;
     scriptState = "loading";
+    ensureCss();
 
     var existing = document.querySelector('script[src="' + SCRIPT_SRC + '"]');
     if (existing) {
@@ -142,6 +154,80 @@
     });
   }
 
+  function badgeText() {
+    var lang = (document.documentElement.lang || "").toLowerCase();
+    if (lang.indexOf("uk") === 0 || lang.indexOf("ua") === 0) {
+      return "Забронювати дзвінок";
+    }
+    return "Book a call";
+  }
+
+  function setBadgeVisible(visible) {
+    var badge = document.querySelector(".calendly-badge-widget");
+    if (!badge) return;
+    badge.style.display = visible ? "" : "none";
+  }
+
+  function shouldHideBadgeNearContact() {
+    if (!contact) return false;
+    var sticky = document.getElementById("sticky-cta");
+    if (sticky && sticky.classList.contains("is-visible") && !sticky.hidden) {
+      return true;
+    }
+    var rect = contact.getBoundingClientRect();
+    return rect.top < window.innerHeight * 0.85;
+  }
+
+  function updateBadgeVisibility() {
+    if (!badgeInited) return;
+    setBadgeVisible(!shouldHideBadgeNearContact());
+  }
+
+  function initBadge() {
+    if (badgeInited) return;
+    if (!isUsableUrl(BADGE_URL)) return;
+
+    whenScriptReady(function () {
+      if (badgeInited) return;
+      if (!window.Calendly || typeof window.Calendly.initBadgeWidget !== "function") {
+        return;
+      }
+      badgeInited = true;
+      window.Calendly.initBadgeWidget({
+        url: BADGE_URL,
+        text: badgeText(),
+        color: BADGE_COLOR,
+        textColor: BADGE_TEXT_COLOR,
+        branding: true,
+      });
+      updateBadgeVisibility();
+    });
+  }
+
+  function scheduleBadge() {
+    var done = false;
+    function trigger() {
+      if (done) return;
+      done = true;
+      window.removeEventListener("scroll", onInteract, true);
+      window.removeEventListener("pointerdown", onInteract, true);
+      initBadge();
+    }
+    function onInteract() {
+      trigger();
+    }
+
+    window.addEventListener("scroll", onInteract, { capture: true, passive: true, once: true });
+    window.addEventListener("pointerdown", onInteract, { capture: true, passive: true, once: true });
+
+    if (typeof window.requestIdleCallback === "function") {
+      window.requestIdleCallback(trigger, { timeout: 2000 });
+    } else {
+      setTimeout(trigger, 2000);
+    }
+  }
+
+  // --- Inline widget (home Contacts only) ---
   if (openBtn) {
     openBtn.addEventListener("click", function (e) {
       e.preventDefault();
@@ -149,10 +235,8 @@
     });
   }
 
-  // Desktop: preload when #contact nears viewport. Mobile: click-to-load only
-  // (Task 7 §2.4 — zero Calendly network until interaction on narrow screens).
   var desktopMq = window.matchMedia("(min-width: 1024px)");
-  if (contact && "IntersectionObserver" in window && desktopMq.matches) {
+  if (root && contact && "IntersectionObserver" in window && desktopMq.matches) {
     var io = new IntersectionObserver(
       function (entries) {
         for (var i = 0; i < entries.length; i++) {
@@ -166,5 +250,22 @@
       { root: null, rootMargin: "150px 0px", threshold: 0 }
     );
     io.observe(contact);
+  }
+
+  // --- Sitewide badge ---
+  scheduleBadge();
+
+  if (contact) {
+    var ticking = false;
+    function onScrollHide() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        updateBadgeVisibility();
+        ticking = false;
+      });
+    }
+    window.addEventListener("scroll", onScrollHide, { passive: true });
+    window.addEventListener("resize", onScrollHide, { passive: true });
   }
 })();

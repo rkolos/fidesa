@@ -26,9 +26,9 @@
 
 - Header desktop: Забронювати дзвінок
 - Header mobile: Дзвінок
-- Hero primary: Забронювати дзвінок → #contact / [CALENDLY_URL]
+- Hero primary: Забронювати дзвінок → #contact / https://calendly.com/vkolos325/cooperation-with-dna325
 - Hero secondary: Як ми працюємо → #process
-- Contact: Відкрити календар · fallback «Відкрити Calendly в новій вкладці» → [CALENDLY_URL]
+- Contact: Відкрити календар · fallback «Відкрити Calendly в новій вкладці» → https://calendly.com/vkolos325/cooperation-with-dna325
 - Skip: Перейти до контенту → #main
 
 ## Hero
@@ -114,7 +114,7 @@
 - **H2:** Забронюйте дзвінок
 - **Supporting:** Короткий зінг із засновницею або командою — щоб зрозуміти роль, терміни й чи можемо бути корисними.
 - **CTA:** Відкрити календар
-- **Fallback:** Відкрити Calendly в новій вкладці → [CALENDLY_URL] (target=_blank, rel=noopener noreferrer; accessible name = visible text)
+- **Fallback:** Відкрити Calendly в новій вкладці → https://calendly.com/vkolos325/cooperation-with-dna325 (target=_blank, rel=noopener noreferrer; accessible name = visible text)
 - **Lazy:** `data-calendly-root` + `calendly-lazy.js` (click mount; IntersectionObserver preload). Sync Contacts markup manually with EN home until SSG.
 - **Email:** Email · [EMAIL_PLACEHOLDER]
 - **Location:** Україна · робота з клієнтами в Україні та міжнародно
