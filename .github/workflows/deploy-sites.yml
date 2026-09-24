@@ -1,4 +1,4 @@
-name: Deploy fidesa.agency
+name: Deploy sites
 
 on:
   push:
@@ -6,12 +6,12 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: deploy-agency
+  group: deploy-sites
   cancel-in-progress: true
 
 jobs:
-  deploy-agency:
-    name: Deploy EN → fidesa.agency
+  deploy:
+    name: Deploy UK + EN
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -40,7 +40,7 @@ jobs:
           printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
 
-      - name: Rsync public/en-site → www/
+      - name: Rsync public/en-site → fidesa.agency
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
@@ -50,4 +50,16 @@ jobs:
           rsync -az --delete \
             -e "ssh -i $HOME/.ssh/deploy_key -o IdentitiesOnly=yes -o PreferredAuthentications=publickey -o PubkeyAuthentication=yes -o StrictHostKeyChecking=yes" \
             public/en-site/ \
+            "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}"
+
+      - name: Rsync public/uk-site → fidesa.com.ua
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH_UA }}
+        run: |
+          set -euo pipefail
+          rsync -az --delete \
+            -e "ssh -i $HOME/.ssh/deploy_key -o IdentitiesOnly=yes -o PreferredAuthentications=publickey -o PubkeyAuthentication=yes -o StrictHostKeyChecking=yes" \
+            public/uk-site/ \
             "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}"
