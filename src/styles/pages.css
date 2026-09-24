@@ -680,11 +680,14 @@ h4.qa__q {
   width: 100%;
   max-width: 100%;
   min-height: 0;
-  overflow: hidden;
+  /* Height can grow via Calendly resize; clip X so spinner/badge don't widen the page. */
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .contact-panel__widget:not([hidden]) {
-  min-height: 630px;
+  /* Official baseline ~700px; resize:true can grow further. */
+  min-height: 700px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface);
@@ -695,6 +698,19 @@ h4.qa__q {
   width: 100% !important;
   max-width: 100%;
   min-width: 0 !important;
+  min-height: 700px !important;
+}
+
+/* Give Calendly the full viewport width on small phones (padding otherwise
+   leaves <320px — official embed minimum — and the calendar clips). */
+@media (max-width: 479px) {
+  .contact-panel__widget:not([hidden]) {
+    width: 100vw;
+    max-width: 100vw;
+    margin-inline: calc(50% - 50vw);
+    border-radius: 0;
+    border-inline: 0;
+  }
 }
 
 .contact-panel__meta {

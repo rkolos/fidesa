@@ -144,6 +144,7 @@
       window.Calendly.initInlineWidget({
         url: url,
         parentElement: widgetHost,
+        resize: true,
       });
       widgetHost.setAttribute("aria-busy", "false");
 
