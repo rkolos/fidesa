@@ -36,5 +36,8 @@ node_modules/
 # Local dev server state
 .dev/
 
+# Deploy marker written by CI, not committed
+public/*/build.txt
+
 # Generated GitHub Pages tree
 dist/

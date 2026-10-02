@@ -25,6 +25,19 @@ jobs:
       - name: Build CSS and sync static into public/
         run: python3 scripts/build_static.py --no-rewrite
 
+      - name: Write deploy marker
+        run: |
+          set -euo pipefail
+          for site in public/uk-site public/en-site; do
+            {
+              echo "commit: $GITHUB_SHA"
+              echo "ref: $GITHUB_REF_NAME"
+              echo "run: $GITHUB_RUN_NUMBER"
+              echo "deployed: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            } > "$site/build.txt"
+          done
+          cat public/uk-site/build.txt
+
       - name: Prepare SSH
         env:
           DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
