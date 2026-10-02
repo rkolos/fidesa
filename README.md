@@ -11,7 +11,7 @@ assets/css/       # site.css — зібраний бандл
 js/               # копія src/js для root-absolute /js/ (sync)
 content/uk|en/    # майбутній контент (vacancies, blog)
 public/uk-site/   # деплой com.ua (містить assets/ + js/ після sync)
-public/en-site/   # деплой agency: `/` → `/en/` (`_redirects` + root index)
+public/en-site/   # деплой agency: EN у корені, легасі `/en/*` → 301 на `/`
 src/styles/       # джерела: tokens, base, layout, components, pages
 src/partials/     # header/footer (uk|en), lang-banner
 src/js/           # джерела JS (nav, sticky-cta, domain-lang, filters, calendly-lazy)
@@ -19,25 +19,29 @@ src/js/           # джерела JS (nav, sticky-cta, domain-lang, filters, ca
 
 Кореневий `logo.svg` — джерело правди для бренду (не змінювати деструктивно).
 
-### Збірка статики (Task 7)
+### Локальна розробка
 
-Після правок у `src/styles/` або `src/js/`:
+```bash
+./scripts/dev.sh start     # збірка + UK на :8080, EN на :8081
+./scripts/dev.sh build     # лише перезбірка (CSS + блог)
+./scripts/dev.sh restart   # перезапуск після змін у scripts/
+./scripts/dev.sh stop
+./scripts/dev.sh status
+./scripts/dev.sh logs
+```
+
+UK: [http://localhost:8080/](http://localhost:8080/) · EN: [http://localhost:8081/](http://localhost:8081/)
+
+`scripts/dev_server.py` повторює поведінку продакшену: віддає `404.html` зі статусом 404
+і робить 301 з легасі `/en/*` на корінь (як `_redirects` + `.htaccess` на agency).
+
+### Збірка статики
 
 ```bash
 python3 scripts/build_static.py
 ```
 
 Це збирає `assets/css/site.css` і копіює `assets/` + `js/` у `public/uk-site/` та `public/en-site/` (і `js/` у корінь репо). Сторінки підключають root-absolute `/assets/...` і `/js/...`.
-
-### Локальний preview (document root)
-
-```bash
-python3 scripts/build_static.py
-python3 -m http.server 8080 --directory public/uk-site
-```
-
-UK: [http://localhost:8080/](http://localhost:8080/)  
-EN (окремий сервер): `python3 -m http.server 8081 --directory public/en-site` → [http://localhost:8081/en/](http://localhost:8081/en/)
 
 
 ## Головна UK (Task 2)
@@ -46,10 +50,10 @@ EN (окремий сервер): `python3 -m http.server 8081 --directory publi
 
 ## Головна EN + domain (Task 3)
 
-Preview EN — див. document root вище (`--directory public/en-site`).
+EN-сайт живе в корені `fidesa.agency` (не під `/en/`). Preview — `./scripts/dev.sh start`, порт 8081.
 
-- Контент: `content/en/home.md` → `public/en-site/en/index.html`
-- Redirect agency root: `public/en-site/_redirects` (`/` → `/en/` 302) + fallback `public/en-site/index.html` (meta refresh)
+- Контент: `content/en/home.md` → `public/en-site/index.html`
+- Легасі `/en/*` → 301 на корінь: `public/en-site/_redirects` (Netlify/CF), `.htaccess` (Apache/LiteSpeed), `public/en-site/en/index.html` (meta-refresh fallback)
 - `src/js/domain-lang.js` — path-aware UA↔EN (`data-domain-switch`), geo-банер на agency (Accept-Language `uk`, localStorage `fidesa.*`)
 - Для prod document root = `public/en-site/` (ассети під `/assets/` — окремий deploy wiring у Task 8)
 

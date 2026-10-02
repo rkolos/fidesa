@@ -592,6 +592,7 @@ def page_shell(
 {footer}
     </div>
     <script src="/js/nav.js" defer></script>
+    <script src="/js/calendly-lazy.js" defer></script>
     <script src="/js/domain-lang.js" defer></script>
   </body>
 </html>

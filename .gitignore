@@ -30,5 +30,11 @@ venv/
 # Node (if added later)
 node_modules/
 
+# Build stamps (mtime-based, churn on every build)
+.stamp
+
+# Local dev server state
+.dev/
+
 # Generated GitHub Pages tree
 dist/
